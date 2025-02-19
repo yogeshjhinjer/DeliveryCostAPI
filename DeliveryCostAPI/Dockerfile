@@ -15,6 +15,8 @@ COPY *.csproj ./
 # Restore NuGet packages with verbose output to diagnose any issues
 RUN dotnet restore -v diag
 
+# Copy the rest of the application files
+COPY . ./
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0-nanoserver-1809 AS build
 ARG BUILD_CONFIGURATION=Release
